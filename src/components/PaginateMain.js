@@ -5,7 +5,7 @@ import Pagination from '../components/Pagination';
 
 let PageSize = 6;
 
-const PaginateMain = ({ data, currentPage, setCurrentPage }) => {
+const PaginateMain = ({ data, currentPage, setCurrentPage, executeScroll }) => {
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
@@ -26,6 +26,7 @@ const PaginateMain = ({ data, currentPage, setCurrentPage }) => {
 
       <section className="">
         <Pagination
+          executeScroll={executeScroll}
           currentPage={currentPage}
           totalCount={data.length}
           pageSize={PageSize}

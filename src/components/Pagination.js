@@ -1,8 +1,8 @@
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 
-import React from 'react';
 import { usePagination } from './usePagination';
 const Pagination = (props) => {
+  // const scrollToTop = useRef(null);
   const {
     onPageChange,
     totalCount,
@@ -22,8 +22,14 @@ const Pagination = (props) => {
     return null;
   }
 
-  const onNext = () => onPageChange(currentPage + 1);
-  const onPrevious = () => onPageChange(currentPage - 1);
+  const onNext = () => {
+    onPageChange(currentPage + 1);
+    props.executeScroll();
+  };
+  const onPrevious = () => {
+    onPageChange(currentPage - 1);
+    props.executeScroll();
+  };
 
   let lastPage = paginationRange[paginationRange.length - 1];
   return (
@@ -50,7 +56,10 @@ const Pagination = (props) => {
                   ? 'text-red-400 m-5 cursor-pointer'
                   : 'm-5 cursor-pointer'
               } `}
-              onClick={() => onPageChange(pageNumber)}
+              onClick={() => {
+                onPageChange(pageNumber);
+                props.executeScroll();
+              }}
             >
               {pageNumber}
             </div>
