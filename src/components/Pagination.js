@@ -77,14 +77,14 @@ const Pagination = (props) => {
         </div>
       </section>
       {currentPage === lastPage ? (
-        <div className="text-center">
+        <div className="text-center hover:scale-105 duration-300">
           {' '}
           <a
             href="https://github.com/ndnied91?tab=repositories"
             target="_blank"
             rel="noreferrer"
           >
-            Click here to check out more projects
+            Check out more projects on GitHub
           </a>
         </div>
       ) : null}

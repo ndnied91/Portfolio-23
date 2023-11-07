@@ -15,7 +15,7 @@ export const BtnWorkContainer = ({
           {' '}
           <a href={resume} target="_blank" rel="noreferrer noopener">
             {' '}
-            Full resume
+            RESUME
           </a>
         </div>
       ) : null}

@@ -51,14 +51,14 @@ const Hero = () => {
               About me
             </h1>{' '}
             <p className="">
-              {' '}
-              VISLBLE ON MD AND SMALL I'm a software engineer with over 7 years
-              of hands-on experience in the ever-evolving world of software
-              engineering, driven by a relentless passion for creating
-              user-centric, dynamic web solutions and constantly learning to
-              stay at the forefront of this dynamic field, turning innovative
-              ideas into beautifully functional websites that leave a lasting
-              digital footprint.
+              I'm a software engineer with over 7 years of hands-on experience
+              in the ever-evolving world of software engineering.
+              <div className="p-1" />
+              I'm driven by a relentless passion for creating user-centric,
+              dynamic web solutions and constantly learning to stay at the
+              forefront of this dynamic field, turning innovative ideas into
+              beautifully functional websites that leave a lasting digital
+              footprint.
             </p>
           </div>
         </section>
@@ -67,13 +67,12 @@ const Hero = () => {
 
         <section className="50 bg-base-100 md:col-start-1 md:col-end-3 body hidden lg:block">
           <div className="">
-            SHOULD BE ONLY VIISBLE ON LARGE : I'm a software engineer with over
-            7 years of hands-on experience in the ever-evolving world of
-            software engineering, driven by a relentless passion for creating
-            user-centric, dynamic web solutions and constantly learning to
-            svdfvsdfvsdfbsdftay at the forefront of this dynamic field, turning
-            innovative ideas into beautifully functional websites that leave a
-            lasting digital footprint.
+            I'm a software engineer with over 7 years of hands-on experience in
+            the ever-evolving world of software engineering. I'm driven by a
+            relentless passion for creating user-centric, dynamic web solutions
+            and constantly learning to stay at the forefront of this dynamic
+            field, turning innovative ideas into beautifully functional websites
+            that leave a lasting digital footprint.
           </div>
         </section>
       </div>

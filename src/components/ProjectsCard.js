@@ -37,13 +37,13 @@ const ProjectsCard = ({
           <div className="mt-4 flex gap-x-4">
             {url ? (
               <a href={url} target="_blank" rel="noreferrer">
-                <TbWorldWww className="h-8 w-8  hover:text-black duration-300" />
+                <TbWorldWww className="h-8 w-8  hover:text-accent duration-300" />
               </a>
             ) : null}
 
             {github !== undefined ? (
               <a href={github} target="_blank" rel="noreferrer">
-                <FaGithubSquare className="h-8 w-8 text-primary-900 hover:text-black duration-300 " />
+                <FaGithubSquare className="h-8 w-8 text-primary-900 hover:text-accent duration-300 " />
               </a>
             ) : null}
           </div>
