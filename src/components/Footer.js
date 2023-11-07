@@ -12,14 +12,14 @@ const Footer = () => {
           </div>
           <div className="flex space-x-5 sm:justify-center md:mt-0 ">
             <a
-              href="https://www.instagram/daniel-niedzwiedzki/"
+              href="https://www.linkedin.com/in/daniel-niedzwiedzki/"
               className=" text-hiVis opacity-90 hover:opacity-100"
               target="_blank"
               rel="noreferrer"
             >
               <BsLinkedin />
 
-              <span className="sr-only">Instagram page</span>
+              <span className="sr-only">Linkedin page</span>
             </a>
             <a
               href="https://github.com/ndnied91"
@@ -32,7 +32,7 @@ const Footer = () => {
               <span className="sr-only">GitHub account</span>
             </a>
             <a
-              href="https://www.instagram/daniel-niedzwiedzki/"
+              href="https://instagram.com/danny_n00/"
               className=" text-hiVis opacity-90 hover:opacity-100"
               target="_blank"
               rel="noreferrer"
