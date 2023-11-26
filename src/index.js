@@ -5,6 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 import { ToastContainer } from 'react-toastify';
 import { AppProvider } from './context';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize(import.meta.TRACKING_ID);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
