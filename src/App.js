@@ -5,7 +5,7 @@ import { HomeLayout, Landing, Resume, Contact, Projects, Error } from './pages';
 import { loader as getJobsLoader } from './pages/Resume';
 
 import { loader as getProjectsLoader } from './pages/Projects';
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 import { useEffect } from 'react';
 
 const router = createBrowserRouter([
@@ -48,9 +48,9 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  useEffect(() => {
-    ReactGA.initialize(process.env.MEASUREMENT_ID, { debug: true });
-  }, []);
+  // useEffect(() => {
+  //   ReactGA.initialize(process.env.MEASUREMENT_ID, { debug: true });
+  // }, []);
 
   return (
     <div className="h-screen">
