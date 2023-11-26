@@ -4,8 +4,10 @@ import FeaturedProjects from '../components/FeaturedProjects';
 
 import Hero from '../components/Hero';
 import { Link, useLoaderData } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 const Landing = () => {
+  ReactGA.pageview(window.location.pathname + window.location.search);
   const { data, error } = useLoaderData();
 
   return (
