@@ -5,6 +5,10 @@ import { HomeLayout, Landing, Resume, Contact, Projects, Error } from './pages';
 import { loader as getJobsLoader } from './pages/Resume';
 
 import { loader as getProjectsLoader } from './pages/Projects';
+import useAnalyticsEventTracker from './components/useAnalyticsEventTracker';
+import ReactGA from 'react-ga';
+import { useEffect } from 'react';
+ReactGA.initialize(import.meta.TRACKING_ID);
 
 const router = createBrowserRouter([
   {
@@ -46,6 +50,10 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <div className="h-screen">
       <RouterProvider router={router} />
