@@ -49,7 +49,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   useEffect(() => {
-    ReactGA.initialize(import.meta.MEASUREMENT_ID, { debug: true });
+    ReactGA.initialize(process.env.MEASUREMENT_ID, { debug: true });
   }, []);
 
   return (
