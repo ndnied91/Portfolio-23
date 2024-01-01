@@ -28,7 +28,6 @@ const randomTheme = () => {
     'pastel',
     'fantasy',
     'black',
-    'luxury',
     'dracula',
     'cmyk',
     'business',

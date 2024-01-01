@@ -295,18 +295,17 @@ const Wrapper = styled.div`
   }
 
   .resume {
-    font-size: larger;
     text-align: center;
-    background: transparent;
-    border-color: transparent;
-    letter-spacing: var(--letterSpacing);
     cursor: pointer;
     transition: var(--transition);
     margin-bottom: 15px;
+    padding: 10px;
   }
 
-  .resume:hover {
+  ${
+    '' /* .resume:hover {
     color: var(--primary-500);
+  } */
   }
   .job-btn:hover {
     color: var(--primary-500);

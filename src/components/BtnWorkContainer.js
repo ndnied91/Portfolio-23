@@ -11,11 +11,11 @@ export const BtnWorkContainer = ({
   return (
     <section>
       {resume !== undefined ? (
-        <div className="resume font-bold text-secondary">
+        <div className="resume font-bold text-secondary bg-primary-content rounded-md hover:opacity-70">
           {' '}
           <a href={resume} target="_blank" rel="noreferrer noopener">
             {' '}
-            RESUME
+            VIEW FULL RESUME
           </a>
         </div>
       ) : null}
