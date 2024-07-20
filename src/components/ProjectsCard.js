@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaGithubSquare } from 'react-icons/fa';
 import { TbWorldWww } from 'react-icons/tb';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 import Modal from './Modal';
 
@@ -52,11 +53,15 @@ const ProjectsCard = ({
 
       {/* modal for item */}
       {showModal ? (
-        <Modal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          item={{ url, image, github, title, text, details, tags }}
-        />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="">
+            <Modal
+              showModal={showModal}
+              setShowModal={setShowModal}
+              item={{ url, image, github, title, text, details, tags }}
+            />
+          </div>
+        </div>
       ) : null}
     </div>
   );
