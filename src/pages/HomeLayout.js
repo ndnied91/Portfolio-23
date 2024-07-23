@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ChangeThemeModal from '../components/ChangeThemeModal';
+import ChatBotBtn from '../components/ChatBotBtn';
 
 const HomeLayout = () => {
   return (
@@ -12,6 +13,7 @@ const HomeLayout = () => {
       <section>
         <Outlet />
         <Footer />
+        <ChatBotBtn />
       </section>
     </>
   );
