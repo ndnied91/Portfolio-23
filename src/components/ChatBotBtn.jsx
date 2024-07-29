@@ -13,7 +13,8 @@ const ChatBotBtn = () => {
   ]);
 
   return (
-    <section className="fixed bottom-3 right-3">
+    // unhide to show chatbot button
+    <section className="fixed bottom-3 right-3 hidden">
       <div className="h-fit w-fit bg-red-400 rounded-lg cursor-pointer">
         <p
           className="p-3 text-white text-sm text-center"
