@@ -13,7 +13,7 @@ const ChatBotBtn = () => {
   ]);
 
   return (
-    <section className="fixed bottom-3 right-3 hidden">
+    <section className="fixed bottom-3 right-3">
       <div className="h-fit w-fit bg-red-400 rounded-lg cursor-pointer">
         <p
           className="p-3 text-white text-sm text-center"
@@ -23,7 +23,7 @@ const ChatBotBtn = () => {
         </p>
       </div>
       {isChatVisible && (
-        <div className="fixed bottom-3 right-3 rounded-xl">
+        <div className="fixed bottom-0 md:bottom-3 right-0 md:right-3 rounded-xl">
           <ChatUI
             isChatVisible={isChatVisible}
             setIsChatVisible={setIsChatVisible}
