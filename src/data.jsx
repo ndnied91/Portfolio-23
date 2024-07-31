@@ -1,10 +1,4 @@
-import {
-  FaBehance,
-  FaFacebook,
-  FaLinkedin,
-  FaTwitter,
-  FaGithub,
-} from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { nanoid } from 'nanoid';
 
 import { MdEmail } from 'react-icons/md';

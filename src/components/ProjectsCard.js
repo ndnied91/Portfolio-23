@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FaGithubSquare } from 'react-icons/fa';
 import { TbWorldWww } from 'react-icons/tb';
-import OutsideClickHandler from 'react-outside-click-handler';
 
 import Modal from './Modal';
 

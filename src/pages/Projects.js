@@ -56,7 +56,7 @@ const Project = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { data, error } = useLoaderData();
+  const { data } = useLoaderData();
   const [menuItems, setMenuItems] = useState(data);
   const [currentPage, setCurrentPage] = useState(1);
 

@@ -14,8 +14,8 @@ const ChatBotBtn = () => {
 
   return (
     // unhide to show chatbot button
-    <section className="fixed bottom-3 right-3 hidden">
-      <div className="h-fit w-fit bg-red-400 rounded-lg cursor-pointer">
+    <section className="fixed bottom-3 right-3">
+      <div className="h-fit w-fit bg-info rounded-lg cursor-pointer hover:bg-secondary duration-200">
         <p
           className="p-3 text-white text-sm text-center"
           onClick={() => setIsChatVisible(!isChatVisible)}

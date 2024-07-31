@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import BtnWorkContainer from '../components/BtnWorkContainer';
 import JobInfo from '../components/JobInfo';
 import Wrapper from '../assets/wrappers/Resume';

@@ -1,15 +1,13 @@
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import { links, social } from '../data';
+import { links } from '../data';
 
 import React, { useState } from 'react';
 import {
   Navbar,
-  MobileNav,
   Typography,
-  Button,
   IconButton,
   Collapse,
 } from '@material-tailwind/react';

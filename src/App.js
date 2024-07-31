@@ -1,12 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import { HomeLayout, Landing, Resume, Contact, Projects, Error } from './pages';
-
 import { loader as getJobsLoader } from './pages/Resume';
-
 import { loader as getProjectsLoader } from './pages/Projects';
-// import ReactGA from 'react-ga';
-import { useEffect } from 'react';
 
 const router = createBrowserRouter([
   {

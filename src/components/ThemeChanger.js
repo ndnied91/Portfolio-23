@@ -3,8 +3,6 @@ import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { FaPaintbrush } from 'react-icons/fa6';
-import { createRoutesFromElements } from 'react-router-dom';
-import { GiConsoleController } from 'react-icons/gi';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -71,10 +69,7 @@ const setName = (item) => {
       return 'Dark';
     default:
       return item;
-    // code block
   }
-
-  return item;
 };
 
 const ThemeChanger = ({ setShowTheme }) => {

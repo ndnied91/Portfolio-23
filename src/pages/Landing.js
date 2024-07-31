@@ -7,8 +7,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 // import ReactGA from 'react-ga';
 
 const Landing = () => {
-  // ReactGA.pageview(window.location.pathname + window.location.search);
-  const { data, error } = useLoaderData();
+  const { data } = useLoaderData();
 
   return (
     <div>

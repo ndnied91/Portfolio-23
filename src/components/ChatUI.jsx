@@ -7,6 +7,7 @@ import { customFetch } from '../utils/chatbotMsgFetch';
 
 const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
   const [text, setText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
   const chatContainerRef = useRef(null);
 
   useEffect(() => {
@@ -16,7 +17,12 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
     }
   }, [transcript]);
 
-  const handleInputChange = (e) => setText(e.target.value);
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    const capitalizedValue =
+      inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+    setText(capitalizedValue);
+  };
 
   const addToTranscript = async () => {
     if (text.trim() !== '') {
@@ -25,24 +31,31 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
         { user: 'human', text },
       ]);
 
-      // make api call to fast api
-      const { data } = await customFetch.post('/chat', {
-        question: text,
-      });
+      setIsTyping(true);
+      // Make API call to FastAPI
+      try {
+        const { data } = await customFetch.post('/chat', {
+          question: text,
+        });
 
-      setTranscript((prevTranscript) => [
-        ...prevTranscript,
-        { user: 'robot', text: data.answer },
-      ]);
+        setTranscript((prevTranscript) => [
+          ...prevTranscript,
+          { user: 'robot', text: data.answer },
+        ]);
 
-      setText('');
+        setIsTyping(false);
+        setText('');
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      setText('');
+      e.preventDefault(); // Prevent form submission
       addToTranscript();
+      setText('');
     }
   };
 
@@ -51,86 +64,86 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
     setTranscript([
       {
         user: 'system',
-        text: 'Welcome! I am Danny`s virtual assistant and can help you answer any questions you might have!',
+        text: "Welcome! I am Danny's virtual assistant and can help you answer any questions you might have!",
       },
     ]);
   };
 
   return (
-    <div className="h-[100vh] md:h-[24rem] w-full md:w-[16rem] flex flex-col rounded-md overflow-hidden">
-      <div className="flex justify-between items-center bg-slate-200 p-3 rounded-t-md">
+    <div className="h-[100vh] md:h-[30rem] w-full md:w-[20rem] flex flex-col rounded-lg shadow-lg">
+      <div className="flex justify-between items-center bg-gray-500 text-accent-content p-3 rounded-t-lg">
         <IoCloseSharp
-          className="text-3xl text-gray-800 cursor-pointer"
+          className="text-3xl cursor-pointer text-gray-100 hover:scale-[1.05] duration-100"
           onClick={closeChat}
         />
         <LuMinimize2
-          className="text-2xl text-gray-800 cursor-pointer"
+          className="text-2xl text-gray-100 cursor-pointer hover:scale-[1.05] duration-100"
           onClick={() => setIsChatVisible(false)}
         />
       </div>
-      <div className="bg-white flex flex-grow flex-col">
+      <div className="bg-slate-100 flex flex-grow flex-col h-max  pb-18 md:mb-0">
         <div
           ref={chatContainerRef}
-          className="pl-4 pr-4 md:pl-2 md:pr-2 flex-grow text-gray-800 md:max-h-[17.6rem] overflow-scroll"
+          className="pl-4 pr-4 md:pl-2 md:pr-2 flex-grow text-gray-800 h-0 md:max-h-[22rem] overflow-scroll mb-14"
         >
-          <div className="flex items-center gap-1">
-            <div className="overflow-scroll">
-              {transcript.map(({ user, text }, index) => {
-                if (index === 0) {
-                  return (
-                    <div key={index} className="flex items-center gap-2">
-                      <div>
-                        <FaRobot className="text-3xl text-red-800" />
-                      </div>
-                      <div className="italic text-lg md:text-xs mt-2 text-red-800">
-                        {text}
-                      </div>
-                    </div>
-                  );
-                }
-                return (
-                  <div key={index}>
-                    <div
-                      className={` ${
-                        user === 'human'
-                          ? 'flex items-center gap-2 mt-3 text-right flex-row-reverse'
-                          : 'flex items-center gap-2 mt-3 bg-gray-100 p-2 rounded-md mb-2'
-                      } `}
-                    >
-                      {user === 'human' ? (
-                        <BsFillPersonFill className="text-xl" />
-                      ) : (
-                        <FaRobot className="text-xl" />
-                      )}
-                      <p className="w-full max-w-20 text-md md:text-sm">
-                        {text}
-                      </p>
-                    </div>
+          {transcript.map(({ user, text }, index) => {
+            if (index === 0) {
+              return (
+                <div key={index} className="flex items-center gap-2">
+                  <div>
+                    <FaRobot className="text-3xl text-red-800" />
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                  <div className="italic text-lg md:text-xs mt-2 text-red-800">
+                    {text}
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <div key={index}>
+                <div
+                  className={` ${
+                    user === 'human'
+                      ? 'flex items-center gap-2 mt-3 text-right text-gray-900 flex-row-reverse'
+                      : 'flex items-center gap-2 mt-3 text-gray-500 p-2 rounded-md'
+                  } `}
+                >
+                  {user === 'human' ? (
+                    <BsFillPersonFill className="text-xl" />
+                  ) : (
+                    <FaRobot className="text-xl" />
+                  )}
+                  <p className="w-full max-w-20 text-md md:text-sm ">{text}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
-        <div className="flex border-t border-gray-300 rounded-b-md">
-          <input
-            value={text}
-            onChange={handleInputChange}
-            onKeyPress={handleKeyPress}
-            className="w-full bg-white h-14 md:h-12 border border-gray-300 pl-2 text-md md:text-xs focus:outline-none text-gray-900"
-            placeholder="Type your question here..."
-          />
-          <button
-            className="h-14 w-14 md:h-12 md:w-12 bg-gray-200 flex items-center justify-center border-l border-gray-300"
-            onClick={addToTranscript}
-            disabled={text.length <= 0}
-          >
-            <IoSend
-              className={`text-3xl md:text-xl text-black ${
-                text.length > 0 ? 'opacity-100' : 'opacity-50'
-              }`}
+
+        <div className="absolute bottom-0 w-full flex border-t-2 border-gray-300 rounded-b-md bg-slate-100">
+          <div className="absolute bottom-14 md:bottom-12 italic text-gray-700 pl-2 pb-0.5 md:text-sm">
+            {isTyping && <p>Virtual assistant is typing..</p>}
+          </div>
+          <div className="flex w-full">
+            <input
+              value={text}
+              onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
+              className="w-full bg-slate-100 h-14 md:h-12 font-semibold pl-3 flex-1 text-md md:text-xs focus:outline-none text-gray-900"
+              placeholder="Type your question here..."
             />
-          </button>
+            <button
+              className="h-14 w-14 md:h-12 md:w-12 bg-slate-200 flex items-center justify-center border-l-2 border-gray-300"
+              onClick={addToTranscript}
+              disabled={text.length <= 0}
+            >
+              <IoSend
+                className={`text-3xl md:text-xl text-black ${
+                  text.length > 0 ? 'opacity-100' : 'opacity-20'
+                }`}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>

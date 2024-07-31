@@ -1,7 +1,4 @@
-import React from 'react';
 import { Duties } from './Duties';
-
-import { v4 as uuidv4 } from 'uuid';
 
 export const JobInfo = ({ jobs, currentItem }) => {
   return (

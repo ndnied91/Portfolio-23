@@ -1,4 +1,4 @@
-import { Tooltip, Button } from '@material-tailwind/react';
+import { Tooltip } from '@material-tailwind/react';
 import ThemeChanger from './ThemeChanger';
 
 const ChangeThemeModal = () => {
