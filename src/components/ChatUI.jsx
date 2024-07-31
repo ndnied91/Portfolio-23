@@ -95,6 +95,15 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
                   </div>
                   <div className="italic text-lg md:text-xs mt-2 text-red-800">
                     {text}
+                    <span className="pl-1 italic text-gray-500">
+                      <a
+                        href="https://github.com/ndnied91/Chatbot-GPT"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Check out the Github repo here
+                      </a>
+                    </span>
                   </div>
                 </div>
               );
