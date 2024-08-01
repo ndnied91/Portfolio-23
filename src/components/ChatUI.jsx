@@ -73,7 +73,7 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
   };
 
   return (
-    <div className="h-screen md:h-[30rem] md:w-[20rem] flex flex-col rounded-lg shadow-lg">
+    <div className="h-[100dvh] md:h-[30rem] md:w-[20rem] flex flex-col rounded-lg shadow-lg">
       <div className="flex justify-between items-center bg-gray-500 text-accent-content p-3 rounded-t-lg">
         <div className="relative">
           <Tippy
