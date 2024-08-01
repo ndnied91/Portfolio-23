@@ -85,40 +85,47 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
           ref={chatContainerRef}
           className="flex-grow px-4 md:px-2 py-2 overflow-y-auto text-gray-800 mb-14"
         >
-          {transcript.map(({ user, text }, index) => (
-            <div
-              key={index}
-              className={`flex items-center gap-2 mt-2 ${
-                user === 'human'
-                  ? 'text-right text-gray-900 flex-row-reverse'
-                  : 'text-red-800'
-              }`}
-            >
-              {user === 'human' ? (
-                <BsFillPersonFill className="text-xl" />
-              ) : (
-                <FaRobot className="text-xl" />
-              )}
-              <p
-                className={`w-full max-w-20 text-md md:text-sm ${
-                  user === 'human'
-                    ? 'bg-blue-100 p-2 rounded-lg'
-                    : 'bg-gray-100 p-2 rounded-lg'
-                }`}
-              >
-                {text}
-                <span className="pl-1 italic text-gray-500">
-                  <a
-                    href="https://github.com/ndnied91/Chatbot-GPT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Check out the Github repo here
-                  </a>
-                </span>
-              </p>
-            </div>
-          ))}
+          {transcript.map(({ user, text }, index) => {
+            if (index === 0) {
+              return (
+                <div key={index} className="flex items-center gap-2">
+                  <div>
+                    <FaRobot className="text-3xl text-red-800" />
+                  </div>
+                  <div className="italic text-lg md:text-xs mt-2 text-red-800">
+                    {text}
+                    <span className="pl-1 italic text-gray-500">
+                      <a
+                        href="https://github.com/ndnied91/Chatbot-GPT"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Check out the Github repo here
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <div key={index}>
+                <div
+                  className={`${
+                    user === 'human'
+                      ? 'flex items-center gap-2 mt-3 text-right text-gray-900 flex-row-reverse'
+                      : 'flex items-center gap-2 mt-3 text-gray-500 p-2 rounded-md'
+                  }  `}
+                >
+                  {user === 'human' ? (
+                    <BsFillPersonFill className="text-xl" />
+                  ) : (
+                    <FaRobot className="text-xl" />
+                  )}
+                  <p className="w-full max-w-20 text-md md:text-sm ">{text}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
         <div className="absolute bottom-0 left-0 w-full flex border-t-2 border-gray-300 bg-slate-100">
           <div className="absolute bottom-14 md:bottom-12 italic text-gray-700 pl-2 pb-0.5 md:text-sm">
