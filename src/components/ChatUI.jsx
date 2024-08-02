@@ -132,8 +132,8 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
                 <div
                   className={` ${
                     user === 'human'
-                      ? 'flex items-center gap-2 mt-3 text-right text-gray-900 flex-row-reverse'
-                      : 'flex items-center gap-2 mt-3 text-gray-600 p-2 rounded-md'
+                      ? 'flex items-center gap-2 mt-1 text-right text-gray-900 flex-row-reverse'
+                      : 'flex items-center gap-2 mt-1 text-gray-600 p-2 rounded-md'
                   } `}
                 >
                   {user === 'human' ? (
@@ -141,7 +141,9 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
                   ) : (
                     <FaRobot className="text-xl" />
                   )}
-                  <p className="w-full max-w-20 text-md md:text-sm ">{text}</p>
+                  <p className="w-full max-w-20 text-md md:text-sm pb-1">
+                    {text}
+                  </p>
                 </div>
               </div>
             );
@@ -149,7 +151,7 @@ const ChatUI = ({ setIsChatVisible, transcript, setTranscript }) => {
         </div>
 
         <div className="w-full flex border-t-2 border-gray-300 rounded-b-md bg-slate-100">
-          <div className="absolute bottom-14 md:bottom-12 rounded-br-lg italic text-gray-400 pl-2 pb-0.5 md:text-sm">
+          <div className="absolute bottom-14 md:bottom-12 rounded-br-lg italic text-gray-400 pl-2 mt-2 pb-0.5 md:text-sm">
             {isTyping && <p>Virtual assistant is typing..</p>}
           </div>
           <div className="flex w-full">
